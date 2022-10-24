@@ -1,24 +1,28 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow } = require('electron');
+
+let win;
 
 const createWindow = () => {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         backgroundColor: '#253238',
         show: false,
+        frame: false,
+        width: 1440,
+        height: 810,
+        resizable: false,
     });
     win.loadFile('index.html');
-
-    win.once('ready-to-show', () => {
-        win.show();
-    });
+    win.once('ready-to-show', () => win.show());
 };
 
-app.whenReady().then(() => {
+app.on('ready', () => {
     createWindow();
-
-    app.on('activate', () => {
-        if (BrowserWindow.getAllWindows().length === 0) {
-            createWindow();
-        }
+    const wc = win.webContents;
+    wc.on('did-finish-load', () => {
+        // autoplay hack :)
+        wc.sendInputEvent({keyCode: 'Tab', type: 'keyDown'});
+        wc.sendInputEvent({keyCode: 'Tab', type: 'char'});
+        wc.sendInputEvent({keyCode: 'Tab', type: 'keyUp'});
     });
 });
 
