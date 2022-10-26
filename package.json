@@ -7,7 +7,8 @@
     "start": "electron-forge start",
     "watch": "nodemon --exec electron .",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "install": "./build-and-install.sh"
   },
   "keywords": [],
   "author": "",

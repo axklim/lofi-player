@@ -1,7 +1,6 @@
 Just open [lofi hip hop radio](https://www.youtube.com/watch?v=jfKfPfyJRdk) without youtube interface (:
 
+Build and install (macOS only):
 ```shell
-npm run make
-unzip out/make/zip/darwin/arm64/lofi-player-darwin-arm64-1.0.0.zip
-rm -rf  ~/Applications/lofi-player.app && mv lofi-player.app ~/Applications
+npm run install
 ```
