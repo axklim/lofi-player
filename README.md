@@ -2,5 +2,6 @@ Just open [lofi hip hop radio](https://www.youtube.com/watch?v=jfKfPfyJRdk) with
 
 Build and install (macOS only):
 ```shell
+npm install -g electron-forge
 npm run install
 ```
